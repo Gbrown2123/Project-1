@@ -1,4 +1,4 @@
-## KU-Cybersecurity-Bootcamp
+## KU-Cybersecurity
 # ELK Stack 
 
 This was the ELK Stack Deployment I built in Microsoft Azure during KU CyberSecurity Bootcamp.
