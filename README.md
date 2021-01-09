@@ -206,7 +206,7 @@ cd /etc/ansible
  $ ansible-playbook install_filebeat.yml webservers
  $ ansible-playbook install_metricbeat.yml webservers
  ```
- - Check that the ELK server is running: ![image](https://user-images.githubusercontent.com/70439871/103724131-43bd4480-4f99-11eb-8f7e-ed15d9c67cec.png)
+ - Check that the ELK server is running: 
 
 
 
