@@ -1,5 +1,5 @@
 ## KU-Cybersecurity-Bootcamp
-# Automated ELK Stack Deployment
+# ELK Stack 
 
 This was the ELK Stack Deployment I built in Microsoft Azure during KU CyberSecurity Bootcamp.
 The files in this repository were used to configure the network depicted below.
@@ -14,8 +14,8 @@ The following files have been tested and used to generate a live ELK deployment 
 ```
 # install_elk.yml
 - name: Configure Elk VM with Docker
-  hosts: elkserver
-  remote_user: bradyw
+  hosts: ELK
+  remote_user: sysadmin
   become: true
   tasks:
     # Use apt module
@@ -53,7 +53,7 @@ The following files have been tested and used to generate a live ELK deployment 
       # Use docker_container module
     - name: download and launch a docker elk container
       docker_container:
-        name: elk
+        name: ELK
         image: sebp/elk:761
         state: started
         restart_policy: always
@@ -94,12 +94,13 @@ collect metrics from the operating system and from services running on the serve
 
 The configuration details of each machine may be found below.
 
- Name      | Function  | IP Address | Operating System |
-|-----------|-----------|------------|------------------|
+| Name     | Function  | IP Address | Operating System |
+|----------|-----------|------------|------------------|
 | Jump Box | Gateway   | 10.0.0.4   | Linux            |
-| Web1     | Webserver | 10.0.0.5   | Linux            |
-| Web2     | Webserver | 10.0.0.6   | Linux            |
-| MatrixVM | Monitoring| 10.1.0.4   | Linux            |
+| Web-1    | Webserver | 10.0.0.5   | Linux            |
+| Web-2    | Webserver | 10.0.0.6   | Linux            |
+| Web-3    | Webserver | 10.0.0.8   | Linux            |
+| ElkVM    | Monitoring| 10.1.0.4   | Linux            |
  
 
 ### Access Policies
@@ -119,9 +120,10 @@ A summary of the access policies in place can be found in the table below.
 | Name      | Publicly Accessible | Allowed IP Addresses |
 |---------- |---------------------|----------------------|
 | Jump Box  | Yes                 |                      |
-| Web1      | No                  | 10.1.0.4             |
-| Web2      | No                  | 10.1.0.4             |
-| MatrixVM  | No                  | 10.1.0.4             |
+| Web-1     | No                  | 10.1.0.4             |
+| Web-2     | No                  | 10.1.0.4             |
+| Web-3     | No                  | 10.1.0.4             |              
+| ElkVM     | No                  | 10.1.0.4             |
 
 
 ### Elk Configuration
@@ -152,10 +154,11 @@ The following screenshot displays the result of running `docker ps` after succes
 This ELK server is configured to monitor the following machines:
 -Private IPs of Web-1 and Web-2
 
-| Name      | IP Addresses         |
-|---------- |----------------------|
-| Web1     | 10.0.0.5             |
-| Web2     | 10.0.0.6             |
+| Name     | IP Addresses         |
+|----------|----------------------|
+| Web-1    | 10.0.0.5             |
+| Web-2    | 10.0.0.6             |
+| Web-3    | 10.0.0.8             |
                   
 
 We have installed the following Beats on these machines:
@@ -188,10 +191,11 @@ $ cp /KU-CyberSecurity-Bootcamp/ReadMe/Playbooks/*
 $ cd /etc/ansible
 $ cat > hosts <<EOF
 [webservers]
-10.0.0.7
+10.0.0.5
+10.0.0.6
 10.0.0.8
 
-[MatrixVM]
+[ElkVM]
 10.1.0.4
 EOF
 ```
