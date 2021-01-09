@@ -4,7 +4,7 @@
 This was the ELK Stack Deployment I built in Microsoft Azure during KU CyberSecurity Bootcamp.
 The files in this repository were used to configure the network depicted below.
 
-
+![image](https://user-images.githubusercontent.com/70850638/104079638-c3d9e900-51e9-11eb-98a4-5c2070bb25eb.png)
 
 The following files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML file may be used to install only certain pieces of it, such as Filebeat.
 
